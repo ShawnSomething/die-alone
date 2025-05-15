@@ -1,24 +1,25 @@
 import React from 'react';
-import './App.css';
+import { Title } from './title';
+import { Main } from './main';
+import { Template } from './templates';
+import { Output } from './output';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="bg-yellow-200 w-screen h-screen">
+        <div>
+          <Title />
+        </div>
+        <div>
+          <Template />
+          <Main />
+          <Output />
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default App;
