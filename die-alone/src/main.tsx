@@ -12,9 +12,33 @@ export const Main = () => {
     }
   };
 
+  const handleDrop = async(e:React.DragEvent) => {
+    e.preventDefault()
+
+    const customImageUrl = e.dataTransfer.getData("custom-image")
+    if (customImageUrl) {
+      const res = await fetch(customImageUrl)
+      const blob = await res.blob()
+      const file = new File([blob], "example.jpg", {type: blob.type})
+
+      setUpload(file)
+      setPreview(URL.createObjectURL(file))
+      return
+    }
+
+    const file = e.dataTransfer.files?.[0]
+    if(file) {
+      setUpload(file)
+      setPreview(URL.createObjectURL(file))
+    }
+  }
+
   return (
     <>
-      <div className="h-screen flex items-center justify-center flex-col">
+      <div className="h-screen flex items-center justify-center flex-col"
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={handleDrop}
+      >
         {!preview && (
           <>
             <h1 className="text-3xl">Upload here!</h1>
