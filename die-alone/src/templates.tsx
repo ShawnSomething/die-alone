@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import myStupidFace from "./my-stupid-face.jpg";
+import awkwardSeal from "./awkward-seal.jpg"
+
+const images = [myStupidFace, awkwardSeal]
 
 export const Template = () => {
   const [positionX, setPositionX] = useState(0);

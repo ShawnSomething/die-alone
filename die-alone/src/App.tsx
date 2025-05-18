@@ -13,7 +13,7 @@ function App() {
           <Title />
         </div>
         <div>
-          <Template />
+          <Template/>
           <Main />
           <Output />
         </div>
