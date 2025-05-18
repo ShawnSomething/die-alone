@@ -8,7 +8,7 @@ import { Output } from './output';
 function App() {
   return (
     <>
-      <div className="bg-yellow-200 w-screen h-screen">
+      <div className="bg-[#1a202c] w-screen h-screen text-white overflow-hidden">
         <div>
           <Title />
         </div>
