@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import myStupidFace from './my-stupid-face.jpg'
 
 export const Template = () => {
     const [positionX, setPositionX] = useState(0)
@@ -45,9 +46,9 @@ export const Template = () => {
                     transitionDuration: '300ms',
                     transitionTimingFunction: 'ease',
                 }}
-                className="duration-300 ease-in-out"
+                className="duration-300 ease-in-out overflow-hidden w-32 h-auto"
             >
-                <p onMouseDown={handleOnMouseDown} className={isDragging ? 'cursor-grabbing' : 'cursor-grab'}>template</p>
+                <img src={myStupidFace} onMouseDown={handleOnMouseDown} className={isDragging ? 'cursor-grabbing' : 'cursor-grab'} />
             </div>
         </>
     )
