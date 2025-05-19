@@ -42,7 +42,7 @@ export const Main = () => {
         {!preview && (
           <>
             <div
-              className={`border-2 border-dashed rounded w-64 h-40 flex items-center justify-center flex-col transition ${
+              className={`border-2 border-dashed rounded w-80 h-40 flex items-center justify-center flex-col transition ${
                 isDraggingOver
                   ? "border-blue-400 bg-blue-50"
                   : "border-gray-400"
