@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import myStupidFace from "./my-stupid-face.jpg";
 import awkwardSeal from "./awkward-seal.jpg"
 
-const images = [myStupidFace, awkwardSeal]
+const images: string[] = [myStupidFace, awkwardSeal]
 
 export const Template = () => {
   const [positionX, setPositionX] = useState(0);
   const [positionY, setPositionY] = useState(150);
   const [isDragging, setIsDragging] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0)
 
   const handleOnMouseDown = () => {
     setIsDragging(true);
@@ -24,6 +25,7 @@ export const Template = () => {
         setIsDragging(false);
         setPositionX(0);
         setPositionY(150);
+        setImageIndex((prev) => (prev + 1) % images.length)
       };
 
       window.addEventListener("mousemove", handleMouseMove);
@@ -37,7 +39,7 @@ export const Template = () => {
   }, [isDragging]);
 
   const handleDragStart = (e: React.DragEvent) => {
-    e.dataTransfer.setData("custom-image", myStupidFace);
+    e.dataTransfer.setData("custom-image", images[imageIndex])
   };
 
   return (
@@ -54,7 +56,7 @@ export const Template = () => {
         className="duration-300 ease-in-out overflow-hidden w-32 h-auto"
       >
         <img
-          src={myStupidFace}
+          src={images[imageIndex]}
           draggable
           onMouseDown={handleOnMouseDown}
           onDragStart={handleDragStart}
